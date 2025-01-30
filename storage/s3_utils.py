@@ -3,11 +3,20 @@ import os
 from datetime import datetime
 from uuid import uuid4
 
-# Initialize the S3 client
-s3_client = boto3.client("s3")
+from dotenv import load_dotenv
 
-# Define your S3 bucket name
-S3_BUCKET_NAME = "team6-document-storage"  # Replace with your actual bucket name
+# Load environment variables from .env file
+load_dotenv()
+
+# Initialize the S3 client
+s3_client = boto3.client(
+    "s3",
+    aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
+    aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
+    region_name=os.getenv("AWS_DEFAULT_REGION"),
+)
+
+S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME")
 
 def generate_s3_object_key(source: str, file_type: str, file_extension: str) -> str:
     """
