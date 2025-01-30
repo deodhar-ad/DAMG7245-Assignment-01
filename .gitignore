@@ -5,6 +5,7 @@ __pycache__/
 *.pyd
 
 # Virtual Environments
+.venv/
 venv/
 env/
 *.egg-info/
@@ -28,4 +29,3 @@ debug.log
 # AWS Credentials & Secrets
 .env
 .aws/
-*.secret
