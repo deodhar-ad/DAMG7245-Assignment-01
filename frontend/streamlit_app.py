@@ -15,7 +15,28 @@ if service in ["Open Source","Enterprise"]:
     with tab1:
         st.header("Process PDF")
         st.write(f"You are using the {service} service for PDF processing.")
-        # Add your PDF processing code here
+        st.subheader("Process a PDF")
+
+        # File uploader
+        uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
+
+        if uploaded_file:  # Ensure file is provided
+            st.write("Processing your PDF...")
+    
+            # Prepare the file for API request
+            files = {"file": uploaded_file.getvalue()}
+    
+            # Make POST request to FastAPI backend
+            response = requests.post(f"{BASE_URL}/process-pdf/enterprise", files=files)
+    
+            if response.status_code == 200:
+                data = response.json()
+                st.success("PDF processed successfully!")
+                st.code(f"Markdown File Path: {data.get('markdown_s3_url', 'N/A')}", language="bash")
+                if "image_s3_urls" in data:
+                    st.code(f"Images Directory: {data.get('image_s3_urls', 'N/A')}", language="bash")
+            else:
+                st.error(f"Failed to process PDF! Error: {response.text}")
     
     with tab2:
         st.header("Scrape Web")

@@ -16,7 +16,25 @@ class URLInput(BaseModel):
 # PDF Extract and Convert Endpoint
 @app.post("/process-pdf/enterprise")
 async def process_pdf_enterprise_endpoint(file: UploadFile = File(...)):
-    pass
+    try:
+        # Step 1: Read the uploaded file content
+        file_content = await file.read()
+
+        # Step 2: Call the process_pdf function with env credentials
+        result = process_pdf_enterprise(file_content)
+
+        # Step 3: Return the S3 URLs and other details
+        return {
+            "message": result["message"],
+            "markdown_s3_url": result["markdown_s3_url"],  # S3 URL for Markdown
+            "image_s3_urls": result["image_s3_urls"],      # List of S3 URLs for images
+            "unique_folder": result["unique_folder"],      # Unique folder name for this processing task
+            "status": result["status"]
+        }
+
+    except Exception as e:
+        # Return a 500 error response in case of an exception
+        return JSONResponse(content={"error": str(e)}, status_code=500)
 
 # Web Scraping Enterprise Endpoint
 @app.post("/scrape-web/enterprise")
