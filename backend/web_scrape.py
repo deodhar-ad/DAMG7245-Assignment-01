@@ -55,7 +55,7 @@ def scrape_and_convert(url: str) -> dict:
                     print(f"Uploading {img_name} to S3...")
                     image_s3_url = upload_file_to_s3(
                         temp_image_path,
-                        f"scraped_websites/{unique_folder}/images",
+                        f"scraped_websites/opensource/{unique_folder}/images",
                         "images",
                         metadata={
                             "original_url": url,
@@ -97,7 +97,7 @@ def scrape_and_convert(url: str) -> dict:
             print(f"Uploading Markdown to S3...")
             markdown_s3_url = upload_file_to_s3(
                 temp_markdown_path,
-                f"scraped_websites/{unique_folder}/markdown",
+                f"scraped_websites/opensource/{unique_folder}/markdown",
                 "markdown",
                 metadata={
                     "original_url": url,

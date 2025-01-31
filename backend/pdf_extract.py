@@ -79,7 +79,7 @@ def process_pdf(file_content: bytes) -> dict:
                 # Upload the image to S3
                 image_s3_url = upload_file_to_s3(
                     temp_image_path,
-                    f"processed_pdfs/{unique_folder}/images",
+                    f"processed_pdfs/opensource/{unique_folder}/images",
                     "images",
                     metadata={
                         "upload_timestamp": timestamp,
@@ -103,7 +103,7 @@ def process_pdf(file_content: bytes) -> dict:
         # Upload Markdown to S3
         markdown_s3_url = upload_file_to_s3(
             temp_markdown_path,
-            f"processed_pdfs/{unique_folder}/markdown",
+            f"processed_pdfs/opensource/{unique_folder}/markdown",
             "markdown",
             metadata={
                 "upload_timestamp": timestamp,
