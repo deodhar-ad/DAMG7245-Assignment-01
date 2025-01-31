@@ -34,8 +34,6 @@ def process_pdf_enterprise(file_content: bytes) -> dict:
     
     Args:
         file_content (bytes): The content of the uploaded PDF file.
-        client_id (str): Adobe PDF Services client ID.
-        client_secret (str): Adobe PDF Services client secret.
     
     Returns:
         dict: A dictionary containing S3 URLs for the extracted markdown, images, and processing status.

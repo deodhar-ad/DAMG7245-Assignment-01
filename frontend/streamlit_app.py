@@ -31,7 +31,7 @@ if service in ["Open Source","Enterprise"]:
                 response = requests.post(f"{BASE_URL}/process-pdf/", files=files)
                 status_code = response.status_code
             else:
-                response = requests.post(f"{BASE_URL}/process-pdf/eneterprise", files=files)
+                response = requests.post(f"{BASE_URL}/process-pdf/enterprise", files=files)
                 status_code = response.status_code
     
     
