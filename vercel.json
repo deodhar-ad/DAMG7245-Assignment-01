@@ -1,9 +1,10 @@
   {
+    "version": 2,
     "builds": [
         {
             "src": "api/fastapi_backend.py",
             "use": "@vercel/python",
-            "config": { "runtime": "python3.10" }
+            "config": { "runtime": "python3.9" }
         }
     ],
     "routes": [
