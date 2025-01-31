@@ -17,8 +17,8 @@ def scrape_and_convert_enterprise(url):
     present in the webpage are downloaded to images folder
     """
     # Load environment variables from .env file
-    load_dotenv("./backend/.env")
-    print("dotenv loaded")
+    load_dotenv()
+    
 
     
     # Initialize the ApifyClient with your API token

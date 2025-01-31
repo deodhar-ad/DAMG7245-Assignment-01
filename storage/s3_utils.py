@@ -5,8 +5,8 @@ from uuid import uuid4
 from dotenv import load_dotenv
 
 # load environment variables from .env files
-load_dotenv("./backend/.env")
-print("dotenv loaded from s3")
+load_dotenv()
+
 
 # Initialize the S3 client
 s3_client = boto3.client(
