@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
@@ -117,5 +118,9 @@ async def scrape_web_enterprise_endpoint(data:URLInput):
     except Exception as e:
         raise HTTPException(status_code=500,detail=f"Internal Server Error: {str(e)}")
 
-def handler(request, *args, **kwargs):
-    return app
+#def handler(request, *args, **kwargs):
+    #return app
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))  # Render dynamically assigns PORT
+    uvicorn.run(app, host="0.0.0.0", port=port)
