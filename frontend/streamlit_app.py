@@ -2,7 +2,8 @@ import streamlit as st
 import requests
 
 # FastAPI Backend URL
-BASE_URL = "http://127.0.0.1:8000"
+#BASE_URL = "http://127.0.0.1:8000"
+BASE_URL = "https://damg7245-assignment-01.onrender.com"
 
 st.title("Assignment 1 - Team 6")
 

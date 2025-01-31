@@ -4,6 +4,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from typing import List
 import uvicorn
+from fastapi.middleware.cors import CORSMiddleware
 from backend.pdf_extract import process_pdf
 from backend.web_scrape import scrape_and_convert
 from backend.web_scrape_enterprise import scrape_and_convert_enterprise
@@ -11,6 +12,14 @@ from backend.pdf_extract_enterprise import process_pdf_enterprise
 
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Change "*" to specific frontend domain for security
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class URLInput(BaseModel):
     urls: List[str]
