@@ -44,7 +44,7 @@ https://docs.google.com/document/d/1gZOaXw5JYJq11axuy83FqQkATYDIr7m_uveodCyMwh4/
 - Streamlit on Streamlit Cloud - https://damg7245-assignment-01-ntxhwzwqbxd3rsghktxg6m.streamlit.app/
 
 ## Demo -
--  https://shorturl.at/xu3Qt
+-  https://shorturl.at/DOsAK
 
 ## Prerequisites
 - Python 3.9+
