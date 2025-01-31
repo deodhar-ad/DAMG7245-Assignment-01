@@ -1,9 +1,9 @@
 # PDF and Web Page Markdown Content Extraction Using Open Source and Enterprise Services
 
 ## Team Members -
-Aditi Ashutosh Deodhar 002279575
-Lenin Kumar Gorle 002803806
-Poorvika Girish Babu 002801388
+- Aditi Ashutosh Deodhar 002279575
+- Lenin Kumar Gorle 002803806
+- Poorvika Girish Babu 002801388
 
 ## Project Overview
 
@@ -40,11 +40,11 @@ Businesses and startups frequently need to process data from unstructured source
 https://docs.google.com/document/d/1gZOaXw5JYJq11axuy83FqQkATYDIr7m_uveodCyMwh4/edit?usp=sharing
 
 ## Hosted Applications links 
-FastAPI on Render - https://damg7245-assignment-01.onrender.com
-Streamlit on Streamlit Cloud - https://damg7245-assignment-01-ntxhwzwqbxd3rsghktxg6m.streamlit.app/
+- FastAPI on Render - https://damg7245-assignment-01.onrender.com
+- Streamlit on Streamlit Cloud - https://damg7245-assignment-01-ntxhwzwqbxd3rsghktxg6m.streamlit.app/
 
 ## Demo -
-https://shorturl.at/xu3Qt
+-  https://shorturl.at/xu3Qt
 
 ## Prerequisites
 - Python 3.9+
