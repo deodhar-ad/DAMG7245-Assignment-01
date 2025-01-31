@@ -1,12 +1,14 @@
-{
-    "version": 2,
-    "functions": {
-      "api/fastapi_backend.py": {
-        "runtime": "vercel-python@3.9"
-      }
-    },
+  {
+    "builds": [
+        {
+            "src": "api/fastapi_backend.py",
+            "use": "@vercel/python"
+        }
+    ],
     "routes": [
-      { "src": "/.*", "dest": "/api/fastapi_backend.py" }
+        {
+            "src": "/(.*)",
+            "dest": "api/fastapi_backend.py"
+        }
     ]
-  }
-  
+}  
