@@ -25,16 +25,22 @@ if service in ["Open Source","Enterprise"]:
     
             # Prepare the file for API request
             files = {"file": uploaded_file.getvalue()}
+
+            status_code = 0
+            if service =="Open Source":
+                response = requests.post(f"{BASE_URL}/process-pdf/", files=files)
+                status_code = response.status_code
+            else:
+                response = requests.post(f"{BASE_URL}/process-pdf/eneterprise", files=files)
+                status_code = response.status_code
     
-            # Make POST request to FastAPI backend
-            response = requests.post(f"{BASE_URL}/process-pdf/enterprise", files=files)
     
-            if response.status_code == 200:
+            if status_code == 200:
                 data = response.json()
                 st.success("PDF processed successfully!")
-                st.code(f"Markdown File Path: {data.get('markdown_s3_url', 'N/A')}", language="bash")
+                st.code(f"Markdown File Path: {data['markdown_s3_url']}", language="bash")
                 if "image_s3_urls" in data:
-                    st.code(f"Images Directory: {data.get('image_s3_urls', 'N/A')}", language="bash")
+                    st.code(f"Images Directory: {data['image_s3_urls']}", language="bash")
             else:
                 st.error(f"Failed to process PDF! Error: {response.text}")
     
@@ -57,12 +63,12 @@ if service in ["Open Source","Enterprise"]:
 
                 if status_code==200:
                     results = response.json()["markdown_results"]
-                    print(results.items())
+
                     for url,result in results.items():
                         st.subheader(url)
                         st.success("Markdown file generated!")
                         st.code(f"File path: {result['markdown_s3_url']}",language="bash")
-                        #st.code(f"File path: {result['path']}",language="bash")
+                        
                 else:
                     st.error("Failed to scrape URLs!")
             else:

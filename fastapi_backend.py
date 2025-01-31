@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from typing import List
 import os
 from backend.web_scrape_enterprise import scrape_and_convert_enterprise
+from backend.pdf_extract_enterprise import process_pdf_enterprise
 import uvicorn
 
 
