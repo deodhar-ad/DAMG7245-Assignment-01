@@ -2,11 +2,11 @@ import boto3
 import os
 from datetime import datetime
 from uuid import uuid4
+
 from dotenv import load_dotenv
 
-# load environment variables from .env files
+# Load environment variables from .env file
 load_dotenv()
-
 
 # Initialize the S3 client
 s3_client = boto3.client(
@@ -16,10 +16,7 @@ s3_client = boto3.client(
     region_name=os.getenv("AWS_DEFAULT_REGION"),
 )
 
-print(s3_client.list_buckets())
-
-# Define your S3 bucket name
-S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME")  
+S3_BUCKET_NAME = os.getenv("S3_BUCKET_NAME")
 
 def generate_s3_object_key(source: str, file_type: str, file_extension: str) -> str:
     """
@@ -38,6 +35,7 @@ def generate_s3_object_key(source: str, file_type: str, file_extension: str) -> 
     unique_id = uuid4().hex  # Generate a unique identifier
     return f"{source}/{file_type}/{date_prefix}/{unique_id}{file_extension}"
 
+    
 def upload_file_to_s3(file_path: str, source: str, file_type: str, metadata: dict = None) -> str:
     """
     Upload a file to S3 with structured naming.
