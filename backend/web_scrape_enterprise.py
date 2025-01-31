@@ -102,7 +102,7 @@ def scrape_and_convert_enterprise(url):
                         image_s3_urls.append(image_s3_url)
                         # Update markdown content to reference local image
                         markdown_content = markdown_content.replace(original_url, image_s3_url)
-                        markdown_content = markdown_content.replace(img_url, f"images/{img_filename}")
+                        markdown_content = markdown_content.replace(img_url, image_s3_url)
                         os.remove(img_path)
 
                 except Exception as e:
