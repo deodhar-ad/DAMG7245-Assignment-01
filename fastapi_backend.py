@@ -2,9 +2,12 @@ from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from typing import List
-import os
+import uvicorn
 from backend.pdf_extract import process_pdf
 from backend.web_scrape import scrape_and_convert
+from backend.web_scrape_enterprise import scrape_and_convert_enterprise
+from backend.pdf_extract_enterprise import process_pdf_enterprise
+
 
 app = FastAPI()
 
@@ -64,24 +67,6 @@ async def scrape_web_endpoint(data: URLInput):
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000, debug=True)from fastapi import FastAPI,File,HTTPException,UploadFile
-from fastapi.responses import JSONResponse
-from pydantic import BaseModel
-from typing import List
-import os
-from backend.web_scrape_enterprise import scrape_and_convert_enterprise
-from backend.pdf_extract_enterprise import process_pdf_enterprise
-import uvicorn
-
-
-app = FastAPI()
-
-class URLInput(BaseModel):
-    urls: List[str]
-
-
 # PDF Extract and Convert Endpoint
 @app.post("/process-pdf/enterprise")
 async def process_pdf_enterprise_endpoint(file: UploadFile = File(...)):
@@ -104,7 +89,7 @@ async def process_pdf_enterprise_endpoint(file: UploadFile = File(...)):
     except Exception as e:
         # Return a 500 error response in case of an exception
         return JSONResponse(content={"error": str(e)}, status_code=500)
-
+    
 # Web Scraping Enterprise Endpoint
 @app.post("/scrape-web/enterprise")
 async def scrape_web_enterprise_endpoint(data:URLInput):
@@ -133,6 +118,4 @@ async def scrape_web_enterprise_endpoint(data:URLInput):
         raise HTTPException(status_code=500,detail=f"Internal Server Error: {str(e)}")
 
 if __name__ == "__main__":
-    uvicorn.run(app,host="127.0.0.1", port=8000, debug=True)
-
-
+    uvicorn.run(app, host="127.0.0.1", port=8000, debug=True)
