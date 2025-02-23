@@ -40,7 +40,7 @@ Businesses and startups frequently need to process data from unstructured source
 https://docs.google.com/document/d/1gZOaXw5JYJq11axuy83FqQkATYDIr7m_uveodCyMwh4/edit?usp=sharing
 
 ## Hosted Applications links 
-- FastAPI on Render - https://fastapi-service-568242136794.us-east1.run.app/docs
+- FastAPI on GCP - https://fastapi-service-568242136794.us-east1.run.app/docs
 - Streamlit on Streamlit Cloud - https://damg7245-assignment-01-ntxhwzwqbxd3rsghktxg6m.streamlit.app/
 
 ## Demo -
