@@ -3,7 +3,8 @@ import requests
 
 # FastAPI Backend URL
 #BASE_URL = "http://127.0.0.1:8000"
-BASE_URL = "https://damg7245-assignment-01.onrender.com"
+#BASE_URL = "https://damg7245-assignment-01.onrender.com"
+BASE_URL = "https://fastapi-service-568242136794.us-east1.run.app"
 
 st.title("Assignment 1 - Team 6")
 
